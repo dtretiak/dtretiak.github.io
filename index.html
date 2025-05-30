@@ -4,40 +4,1000 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Under Construction</title>
+    <title>Dima Tretiak | Researcher in Fluid Dynamics & Machine Learning</title>
+    <meta http-equiv="refresh" content="0; url=pages/about.html">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #2c3e50;
+            --card-bg: #fff;
+            --border-radius: 8px;
+        }
+
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            padding-top: 80px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
         }
 
         .container {
-            text-align: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: white;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
         }
 
         h1 {
             font-size: 2.5rem;
         }
 
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
         p {
-            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-top: -80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: white;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* About section */
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .profile-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .experience-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .experience-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--card-bg);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--card-bg);
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--card-bg);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--card-bg) transparent transparent;
+        }
+
+        .right::after {
+            left: -13px;
+        }
+
+        .experience-content {
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Publications */
+        .publications {
+            background-color: var(--light-bg);
+        }
+
+        .publication-item {
+            background-color: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .publication-journal {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Skills */
+        .skills {
+            background-color: white;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .skill-category {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .skill-list {
+            list-style-type: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: "\f101";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var (--secondary-color);
+        }
+
+        /* Contact */
+        .contact {
+            background-color: var(--light-bg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-right: 20px;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+        }
+
+        /* Interests */
+        .interests {
+            background-color: white;
+        }
+
+        .interest-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .interest-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            width: 150px;
+            height: 150px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .interest-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .interest-item:hover i {
+            color: white;
+        }
+
+        .interest-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 0 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column-reverse;
+            }
+
+            .profile-image {
+                margin-bottom: 30px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .experience-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .experience-item::before {
+                left: 60px;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--card-bg) transparent transparent;
+            }
+
+            .left::after,
+            .right::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.4s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Webpage in Progress!</h1>
-        <p>Thank you for visiting. Check back soon for updates!</p>
-        <p>Contact me at: <a href="mailto:dtretiak@uw.edu">dtretiak@uw.edu</a></p>
-        <p>Connect on <a href="https://www.linkedin.com/in/dtretiak/" target="_blank">LinkedIn</a></p>
-    </div>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Dima <span>Tretiak</span></div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Dima Tretiak</h1>
+                <p>Researcher in Fluid Dynamics & Machine Learning</p>
+                <p>Ph.D. Student at University of Washington</p>
+                <a href="#publications" class="btn">View Publications</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>I'm a Ph.D. student in Mechanical Engineering at the University of Washington, working under the
+                        guidance of Dr. Steve Brunton and Dr. J. Nathan Kutz. My research focuses on the intersection of
+                        fluid dynamics, machine learning, and computational physics.</p>
+                    <p>With experience at institutions like SpaceX, Raytheon Technologies Research Center, and Los
+                        Alamos National Laboratory, I've developed expertise in Computational Fluid Dynamics (CFD),
+                        physics-informed machine learning, and the application of AI to solve complex engineering
+                        problems.</p>
+                    <p>I'm passionate about developing novel computational methods that can advance our understanding of
+                        complex physical systems while making simulations more efficient and accurate.</p>
+                </div>
+                <div class="profile-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80"
+                        alt="Placeholder image - replace with your own photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>Research Experience</h2>
+            <div class="timeline">
+                <div class="experience-item left fade-in">
+                    <div class="experience-content">
+                        <h3>University of Washington</h3>
+                        <p class="experience-date">September 2023 - Present</p>
+                        <p>Ph.D. Student in Mechanical Engineering</p>
+                        <p>Research in physics-constrained machine learning for fluid dynamics</p>
+                        <p>Working with Dr. Steve Brunton and Dr. J. Nathan Kutz</p>
+                    </div>
+                </div>
+                <div class="experience-item right fade-in">
+                    <div class="experience-content">
+                        <h3>Space Exploration Technologies (SpaceX)</h3>
+                        <p class="experience-date">May 2023 - August 2023</p>
+                        <p>Post-Grad Associate Engineer</p>
+                        <ul>
+                            <li>Evaluated air mixing risks for astronauts aboard Dragon Capsule using multi-gas CFD</li>
+                            <li>Informed sensor placement and gas injection rates for ground testing</li>
+                            <li>Revamped Falcon Heavy aerothermal model to include landing legs and predict tank skin
+                                heating</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item left fade-in">
+                    <div class="experience-content">
+                        <h3>Raytheon Technologies Research Center</h3>
+                        <p class="experience-date">May 2021 - August 2022</p>
+                        <p>Aerothermal Modeler Intern</p>
+                        <ul>
+                            <li>Implemented physics-informed deep learning airfoil flow emulator for optimization</li>
+                            <li>Developed Machine Learning Wall Model for turbine blade film cooling</li>
+                            <li>Analyzed fan blade measurements for robust jet engine design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item right fade-in">
+                    <div class="experience-content">
+                        <h3>Los Alamos National Laboratory</h3>
+                        <p class="experience-date">June 2018 - May 2021</p>
+                        <p>Student Intern - Computational Physics and Methods</p>
+                        <ul>
+                            <li>Developed 3D GANs with physics constraints for turbulent flow emulation</li>
+                            <li>Selected to present in LDRD project review alongside staff scientists</li>
+                            <li>Contributed to publications and presented at multiple conferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2>Publications</h2>
+
+            <div class="publication-item fade-in">
+                <div class="publication-title">Physics-Constrained Forecasting of Spatiotemporal Systems with Reservoir
+                    Computing</div>
+                <div class="publication-authors">D. Tretiak, A. Bizyaeva, J.N. Kutz, S.L. Brunton</div>
+                <div class="publication-journal">In preparation for L4DC (2025)</div>
+            </div>
+
+            <div class="publication-item fade-in">
+                <div class="publication-title">Less is more: towards a minimal reservoir computing framework</div>
+                <div class="publication-authors">A. Bizyaeva, D. Tretiak, S.L. Brunton, J.N. Kutz</div>
+                <div class="publication-journal">In preparation for Chaos (2024)</div>
+            </div>
+
+            <div class="publication-item fade-in">
+                <div class="publication-title">Assessment of Machine Learning Wall Modeling Approaches for Large Eddy
+                    Simulation of Gas Turbine Film Cooling Flows: An a Priori Study</div>
+                <div class="publication-authors">T. Kumar, P. Pal, A. Nunno, S. Wu, O. Owoyele, M. Joly, D. Tretiak
+                </div>
+                <div class="publication-journal">Journal of Engineering for Gas Turbines and Power (2024)</div>
+            </div>
+
+            <div class="publication-item fade-in">
+                <div class="publication-title">Physics-Constrained Generative Adversarial Networks for 3D Turbulence
+                </div>
+                <div class="publication-authors">D. Tretiak, A. Mohan, D. Livescu</div>
+                <div class="publication-journal">arXiv e-prints, arXiv:2212.00217</div>
+            </div>
+
+            <div class="publication-item fade-in">
+                <div class="publication-title">Spatio-Temporal Deep Learning Models of 3D Turbulence with
+                    Physics-Informed Diagnostics</div>
+                <div class="publication-authors">A. Mohan, D. Tretiak, M. Chertkov, and D. Livescu</div>
+                <div class="publication-journal">Journal of Turbulence (Invited Article), 21:9-10, 484-524 (2020)</div>
+                <div><a href="https://doi.org/10.1080/14685248.2020.1832230"
+                        target="_blank">https://doi.org/10.1080/14685248.2020.1832230</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="experience-item left fade-in" style="width: 100%; padding-left: 0;">
+                <div class="experience-content">
+                    <h3>University of Washington</h3>
+                    <p class="experience-date">Expected June 2028</p>
+                    <p>Ph.D. in Mechanical Engineering</p>
+                    <p>GPA: 4.00 / 4.00</p>
+                    <p>Research Advisors: Steve Brunton and J. Nathan Kutz</p>
+                </div>
+            </div>
+            <div class="experience-item left fade-in" style="width: 100%; padding-left: 0; margin-top: 20px;">
+                <div class="experience-content">
+                    <h3>Georgia Institute of Technology</h3>
+                    <p class="experience-date">May 2023</p>
+                    <p>B.S. in Mechanical Engineering</p>
+                    <p>GPA: 4.00 / 4.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3>Software</h3>
+                    <ul class="skill-list">
+                        <li>Python (PyTorch, Numpy, Matplotlib)</li>
+                        <li>Git & Version Control</li>
+                        <li>High Performance Computing (HPC) with Slurm</li>
+                        <li>LaTeX via Overleaf</li>
+                        <li>MATLAB</li>
+                        <li>Java</li>
+                        <li>Bash/Powershell</li>
+                        <li>C/C++</li>
+                        <li>Julia</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Engineering</h3>
+                    <ul class="skill-list">
+                        <li>Computational Fluid Dynamics (CFD)</li>
+                        <li>Solidworks</li>
+                        <li>COMSOL</li>
+                        <li>STAR CCM+</li>
+                        <li>Thermal Desktop</li>
+                        <li>Fluid Dynamics</li>
+                        <li>Thermodynamics</li>
+                        <li>Heat Transfer</li>
+                        <li>Numerical Methods</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Technical</h3>
+                    <ul class="skill-list">
+                        <li>Mechatronics (Raspberry Pi, Arduino)</li>
+                        <li>3D Printing</li>
+                        <li>Laser Cutting</li>
+                        <li>Machining</li>
+                        <li>Technical Communication</li>
+                        <li>Circuits</li>
+                        <li>Failure Modes and Effects Analysis (FMEA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="honors" class="honors">
+        <div class="container">
+            <h2>Honors & Awards</h2>
+            <div class="publication-item fade-in">
+                <div class="publication-title">University of Washington Purvis Family Endowed Fellowship (2023)</div>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-title">University of Washington Steve and Lynn Pratt Fellowship in Mechanical
+                    Engineering (2023)</div>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-title">Richard K. Whitehead Jr. Memorial Award (Georgia Tech, Mechanical
+                    Engineering, 2023)</div>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-title">Georgia Institute of Technology Faculty Honors (2019-2023)</div>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-title">HPCwire Readers' Choice Award for "Best Use of HPC in Industry" for RTRC
+                    film cooling project</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests" class="interests">
+        <div class="container">
+            <h2>Personal Interests</h2>
+            <div class="interest-items">
+                <div class="interest-item fade-in">
+                    <i class="fas fa-water interest-icon"></i>
+                    <span>Whitewater Kayaking</span>
+                </div>
+                <div class="interest-item fade-in">
+                    <i class="fas fa-mountain interest-icon"></i>
+                    <span>Rock Climbing</span>
+                </div>
+                <div class="interest-item fade-in">
+                    <i class="fas fa-snowflake interest-icon"></i>
+                    <span>Skiing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <div class="contact-item fade-in">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <a href="mailto:dtretiak@uw.edu">dtretiak@uw.edu</a>
+                    </div>
+                </div>
+                <div class="contact-item fade-in">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <a href="tel:+15055006925">(505) 500-6925</a>
+                    </div>
+                </div>
+                <div class="contact-item fade-in">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <div class="contact-text">
+                        <h4>Location</h4>
+                        <p>Seattle, WA 98105</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/dtretiak/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://scholar.google.com/" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 Dima Tretiak. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        function checkFade() {
+            const triggerBottom = window.innerHeight * 0.8;
+
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < triggerBottom) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Header shrink on scroll
+        function checkScroll() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            checkFade();
+            checkScroll();
+        });
+
+        // Initial check
+        checkFade();
+    </script>
 </body>
 
 </html>
