@@ -169,6 +169,54 @@ style.textContent = `
 
 document.head.appendChild(style);
 
+// Progressive image loading for hobbies page
+if (document.body.classList.contains('hobbies-page')) {
+    const progressiveImages = document.querySelectorAll('.progressive-image');
+
+    progressiveImages.forEach(img => {
+        const highResUrl = img.getAttribute('data-high-res');
+
+        if (highResUrl) {
+            // Wait for the low-res image to load first
+            if (img.complete) {
+                loadHighResImage(img, highResUrl);
+            } else {
+                img.addEventListener('load', () => {
+                    loadHighResImage(img, highResUrl);
+                });
+            }
+        }
+    });
+
+    function loadHighResImage(imgElement, highResUrl) {
+        // Add a small delay to ensure low-res image is visible first
+        setTimeout(() => {
+            const highResImg = new Image();
+
+            // Add loading class
+            imgElement.classList.add('loading');
+
+            highResImg.onload = function () {
+                // Once high-res image is loaded, swap it in
+                imgElement.src = highResUrl;
+                imgElement.classList.remove('loading');
+                imgElement.classList.add('loaded');
+
+                console.log('High resolution image loaded successfully');
+            };
+
+            highResImg.onerror = function () {
+                // If high-res fails to load, remove loading state
+                imgElement.classList.remove('loading');
+                console.log('High resolution image failed to load, keeping compressed version');
+            };
+
+            // Start loading the high-res image
+            highResImg.src = highResUrl;
+        }, 500); // 500ms delay to let user see the compressed version first
+    }
+}
+
 // Parallax effect for hobbies hero image
 if (document.body.classList.contains('hobbies-page')) {
     const heroImage = document.querySelector('.hero-image img');
